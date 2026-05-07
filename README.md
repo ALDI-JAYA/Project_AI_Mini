@@ -32,6 +32,8 @@ ai-jobs-enthusiast-2030/
     ml_model.py
     recommender.py
     skill_gap.py
+  data/
+    AI_Impact_on_Jobs_2030.csv
   app.py
   main.py
   requirements.txt
@@ -53,10 +55,10 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Secara default project akan membaca file ini:
+Secara default project akan membaca file di dalam repository:
 
 ```text
-C:\Users\Aldi Tri Wijaya\Downloads\archive\AI_Impact_on_Jobs_2030.csv
+data\AI_Impact_on_Jobs_2030.csv
 ```
 
 Jika ingin memakai path CSV lain:
@@ -74,6 +76,24 @@ streamlit run app.py
 Dashboard akan membuka halaman lokal di browser. Di sana kamu bisa filter berdasarkan kategori risiko dan edukasi, melihat pekerjaan dengan peluang AI tertinggi, membandingkan risiko otomatisasi dengan opportunity score, memakai AI Career Recommender, menganalisis skill gap untuk pekerjaan target, dan mengevaluasi model machine learning.
 
 Default kurs yang dipakai adalah `1 USD = Rp16.000`. Nilai ini bisa diubah dari sidebar dashboard.
+
+## Deploy ke Streamlit Cloud
+
+Untuk deploy, pastikan file dataset ikut masuk ke repository:
+
+```text
+data/AI_Impact_on_Jobs_2030.csv
+```
+
+Streamlit Cloud tidak bisa membaca path lokal Windows seperti `C:\Users\...\Downloads\...`, karena server Streamlit berjalan di cloud. Karena itu app ini memakai path relatif repository sebagai default.
+
+Langkah umum:
+
+1. Upload project ini ke GitHub.
+2. Pastikan `requirements.txt`, `app.py`, folder `ai_jobs_enthusiast/`, dan folder `data/` ikut ter-upload.
+3. Buka Streamlit Cloud, pilih repository.
+4. Set main file path ke `app.py`.
+5. Deploy.
 
 ## Fitur AI Career Recommender
 
